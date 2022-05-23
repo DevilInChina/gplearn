@@ -467,7 +467,6 @@ class BaseSymbolic(BaseEstimator, metaclass=ABCMeta):
                 parents = None
             else:
                 parents = self._programs[gen - 1]
-                print(len(parents))
             
             # Parallel loop
             n_jobs, n_programs, starts = _partition_estimators(
@@ -497,7 +496,6 @@ class BaseSymbolic(BaseEstimator, metaclass=ABCMeta):
                                          np.var(length))
             for program in population:
                 program.fitness_ = program.fitness(parsimony_coefficient)
-            print("pop size:",len(population))
             self._programs.append(population)
 
             # Remove old programs that didn't make it into the new population.
